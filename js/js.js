@@ -180,4 +180,40 @@ function save_edit() {
 
   }
 }
+function showuser(query = "") {
+    let userlist = "";
+    
+    // Filter users based on the search query
+    let filteredUsers = users.filter(person => 
+        person.name.toLowerCase().includes(query.toLowerCase()) ||
+        person.number.includes(query) ||
+        person.email.toLowerCase().includes(query.toLowerCase()) ||
+        person.address.toLowerCase().includes(query.toLowerCase())
+    );
 
+    // Generate the user list HTML
+    filteredUsers.forEach((person, index) => {
+        userlist += `
+            <li id="user">
+                <div class="first2">
+                    <div class="contactpic">
+                        <img src="image/contat.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p>${person.name}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <img src="image/info.png" onclick="showpopup('moreinfo');display_user(${index})" alt="" class="temp_butttons">
+                    <img src="image/edit.png" alt="" onclick="showpopup('edituser_adduser');change_value(${index});show_user(${index})" class="temp_butttons">
+                    <img src="image/delete.png" alt="" onclick="delete_user(${index})" class="temp_butttons">
+                </div>
+            </li>`;
+    });
+
+    document.getElementById('usersaa').innerHTML = userlist;
+    document.querySelector(".tempP").textContent = "count people: " + filteredUsers.length;
+}
+searchInput.addEventListener('input', () => {
+    showuser(searchInput.value);
+});
