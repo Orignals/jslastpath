@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles/styles.css">
+  <title>Phone Book</title>
+</head>
+
+<body>
+  <header>
+
+    <h1> Phone book</h1>
+
+  </header>
+  <main onload="showuser()">
+    <div class="container">
+
+
+      <ul id="topuser">
+        <li>
+          <div class="caption">
+            <p class="tempP"> count pepole</p>
+          </div>
+        </li>
+        <li>
+          <div class="search">
+            <input type="text" id="search_field" name="search" placeholder="" maxlength="40" class="search_icon">
+
+          </div>
+          <div class="warrper3">
+            <div class="buttons">
+              <img src="image/add-user.png" onclick="showpopup('edituser_adduser');change_value('-1')" alt=""
+                class="temp_search">
+            </div>
+            <div class="buttons">
+              <img src="image/delete.png" alt="" onclick="delete_user('all')" class="temp_search">
+            </div>
+          </div>
+        </li>
+      </ul>
+
+
+      <ul id="usersaa">
+
+      </ul>
+
+    </div>
+
+    <div onclick="closepopup(event)" id="popup">
+
+      <div id="moreinfo" onclick="userinfo" class="popupbackground">
+        <div id="close_button">
+          <button onclick="closepopup('close')" id="close" aria-label="close">x</button>
+        </div>
+
+
+        <div id="img_name_number">
+          <img src="#" alt="contact_pic" id="contact_img">
+          <p id="contact_name"></p>
+          <p id="contact_phone"></p>
+        </div>
+
+
+        <div id="phone_email">
+          <div id="contact_email">
+            <p><span>Email: </span> </p>
+          </div>
+
+          <div id="contact_address">
+            <p><span>Address: </span> </p>
+          </div>
+
+          <div id="contact_description">
+            <p><span>Description: </span> </p>
+          </div>
+
+
+        </div>
+      </div>
+
+
+
+
+      <div id="edituser_adduser">
+            <div id="close_button">
+              <button onclick="closepopup('close')" id="close" aria-label="close">x</button>
+            </div>
+        <div id="add_user_img">
+          <img src="image/contat.png" class="user_img" id="user_img_add" alt="user img">
+        </div>
+
+        <div id="add_user_div">
+          <form action="#" onsubmit="stopref()">
+
+            <label id="Name_label" for="name"> Name
+              <input type="text" placeholder="Enter the Name" id="name">
+
+            </label>
+
+
+            <label id="Number_label" for="number">Number
+              <input type="tel" placeholder="Enter thr Number" id="number">
+            </label>
+
+
+
+            <label id="Email_label" for="email">Email
+              <input type="email" placeholder="Ente the Email" id="email">
+            </label>
+
+            <label for="address">Address
+              <input type="text" placeholder="Enter thr Address" id="address">
+
+            </label>
+
+
+            <label for="description">Description
+              <textarea name="description" id="description"></textarea>
+            </label>
+
+            <div id="add_button">
+              <button onclick="closepopup('close')" id="cancel_add">Cancel</button>
+              <button onclick="save_edit()" value="" id="save_add">save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+  </main>
+  <footer>
+    <p class="copyright">Asel and Eyal &copy; 2022-2024</p>
+  </footer>
+  <script src="js/js.js"></script>
+</body>
+
+</html>

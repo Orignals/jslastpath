@@ -1,0 +1,247 @@
+body {
+  background-image: url(/image/background.png);
+  width: auto;
+  background-size: cover;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 1.3rem;
+  color: hsl(0, 0%, 100%);
+}
+
+
+
+#text {
+
+  display: flex;
+  max-width: fit-content;
+  text-align: center;
+}
+
+main {
+  flex-grow: 3;
+  text-align: center;
+
+}
+
+header {
+  padding: 30px;
+}
+
+header>h1 {
+  margin: auto;
+  width: 19%;
+  padding: 1rem;
+  background: none;
+
+}
+
+div {
+  justify-content: space-between;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+  padding-left: 0;
+  display: inline-block;
+}
+
+li {
+  text-size-adjust: 1.3rem;
+  text-align: center;
+  display: flex;
+  max-width: 800px;
+  justify-content: space-between;
+}
+
+.name {
+  text-align: center;
+  text-size-adjust: 10px;
+}
+
+li img {
+  float: left;
+  width: 100px;
+  padding-right: 3%;
+}
+
+.temp_butttons {
+
+  max-width: 20%;
+  width: 13%;
+  margin-left: 17%;
+}
+
+.buttons {
+  align-items: center;
+  width: 20%;
+  padding: 2%;
+  margin: 0.8%;
+}
+
+.first2 {
+  display: flex;
+
+}
+
+.name {
+  text-align: center;
+  padding-top: 6mm;
+}
+
+.container {
+  background-image: url(../image/backgraound2.png);
+  width: 800px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  display: flex;
+  padding: 2% 4% 0%;
+
+}
+
+.warrper3 {
+  display: flex;
+  padding: 1%;
+  margin-right: 3%;
+}
+
+.search {
+  padding: 1.3% 4.6%;
+
+}
+
+.temp_search {
+  width: 30px;
+}
+
+.search_icon {
+  width: fit-content;
+  background-image: url("../image/search.png");
+  background-repeat: no-repeat;
+  background-position: top 100px;
+  background-position: right 0px;
+  background-size: 23px;
+  border: none;
+  height: 21px;
+}
+
+#popup {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgb(0, 0, 0, 0.7);
+}
+
+#edituser {
+  display: none;
+}
+
+
+#deleteuser {
+  display: none;
+}
+
+.popupbackground {
+  background-color: brown;
+  width: 500px;
+  height: 500px;
+}
+
+
+/*user info*/
+#moreinfo {
+  display: none;
+  /**/
+  flex-direction: column;
+
+}
+
+#contact_img {
+  width: 220px;
+}
+
+#phone_email {
+  display: flex;
+}
+
+#close_button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#edituser_adduser {
+  display: none;
+}
+
+
+.copyright {
+  text-align: center;
+}
+
+.show {
+  display: flex !important;
+}
+
+
+#edituser_adduser {
+  flex-direction: column;
+  background-color: rgb(40, 108, 216);
+}
+
+#add_user_img img {
+  width: 220px;
+}
+
+form {
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  height: 15rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+#add_button {
+  display: flex;
+  margin-top: 50px;
+  width: 100%;
+  gap: 100px;
+  justify-content: center;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+  p {
+    font-size: x-large;
+  }
+
+  img {
+    max-width: 400%;
+    height: auto;
+  }
+}
