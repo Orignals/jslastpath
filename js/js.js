@@ -1,3 +1,6 @@
+'use strict'
+
+const searchInput = document.getElementById('search');
 
 let users = [
   {
@@ -14,7 +17,7 @@ let users = [
     email: "john.doe@example.com",
     address: "123 Elm Street",
     description: "John is a software engineer.",
-  img: "image/contat.png"
+    img: "image/contat.png"
   },
   {
     name: "Jane Smith",
@@ -22,7 +25,7 @@ let users = [
     email: "jane.smith@example.com",
     address: "456 Oak Avenue",
     description: "Jane is a graphic designer.",
-  img: "image/contat.png"
+    img: "image/contat.png"
   },
   {
     name: "Alice Johnson",
@@ -30,7 +33,7 @@ let users = [
     email: "alice.johnson@example.com",
     address: "789 Pine Road",
     description: "Alice is a project manager.",
-  img: "image/contat.png"
+    img: "image/contat.png"
   },
   {
     name: "Bob Brown",
@@ -38,7 +41,7 @@ let users = [
     email: "bob.brown@example.com",
     address: "101 Maple Drive",
     description: "Bob is a digital marketer.",
-  img: "image/contat.png"
+    img: "image/contat.png"
   },
 ]
 
@@ -180,20 +183,26 @@ function save_edit() {
 
   }
 }
-function showuser(query = "") {
-    let userlist = "";
-    
-    // Filter users based on the search query
-    let filteredUsers = users.filter(person => 
-        person.name.toLowerCase().includes(query.toLowerCase()) ||
-        person.number.includes(query) ||
-        person.email.toLowerCase().includes(query.toLowerCase()) ||
-        person.address.toLowerCase().includes(query.toLowerCase())
-    );
 
-    // Generate the user list HTML
-    filteredUsers.forEach((person, index) => {
-        userlist += `
+searchInput.addEventListener('input', () => {
+  showuser(searchInput.value);
+});
+
+
+function showuser(query = "") {
+  let userlist = "";
+
+  // Filter users based on the search query
+  let filteredUsers = users.filter(person =>
+    person.name.toLowerCase().includes(query.toLowerCase()) ||
+    person.number.includes(query) ||
+    person.email.toLowerCase().includes(query.toLowerCase()) ||
+    person.address.toLowerCase().includes(query.toLowerCase())
+  );
+
+  // Generate the user list HTML
+  filteredUsers.forEach((person, index) => {
+    userlist += `
             <li id="user">
                 <div class="first2">
                     <div class="contactpic">
@@ -209,11 +218,49 @@ function showuser(query = "") {
                     <img src="image/delete.png" alt="" onclick="delete_user(${index})" class="temp_butttons">
                 </div>
             </li>`;
-    });
+  });
 
-    document.getElementById('usersaa').innerHTML = userlist;
-    document.querySelector(".tempP").textContent = "count people: " + filteredUsers.length;
+  document.getElementById('usersaa').innerHTML = userlist;
+  document.querySelector(".tempP").textContent = "count people: " + filteredUsers.length;
 }
 searchInput.addEventListener('input', () => {
-    showuser(searchInput.value);
+  showuser(searchInput.value);
+});
+
+function showuser(query = "") {
+  let userlist = "";
+
+  // Filter users based on the search query
+  let filteredUsers = users.filter(person =>
+    person.name.toLowerCase().includes(query.toLowerCase()) ||
+    person.number.includes(query) ||
+    person.email.toLowerCase().includes(query.toLowerCase()) ||
+    person.address.toLowerCase().includes(query.toLowerCase())
+  );
+
+  // Generate the user list HTML
+  filteredUsers.forEach((person, index) => {
+    userlist += `
+            <li id="user">
+                <div class="first2">
+                    <div class="contactpic">
+                        <img src="image/contat.png" alt="">
+                    </div>
+                    <div class="name">
+                        <p>${person.name}</p>
+                    </div>
+                </div>
+                <div class="buttons">
+                    <img src="image/info.png" onclick="showpopup('moreinfo');display_user(${index})" alt="" class="temp_butttons">
+                    <img src="image/edit.png" alt="" onclick="showpopup('edituser_adduser');change_value(${index});show_user(${index})" class="temp_butttons">
+                    <img src="image/delete.png" alt="" onclick="delete_user(${index})" class="temp_butttons">
+                </div>
+            </li>`;
+  });
+
+  document.getElementById('usersaa').innerHTML = userlist;
+  document.querySelector(".tempP").textContent = "count people: " + filteredUsers.length;
+}
+searchInput.addEventListener('input', () => {
+  showuser(searchInput.value);
 });
